@@ -1,0 +1,71 @@
+ServerSignature Off
+
+DirectoryIndex public/index.php
+
+# BEGIN Expiry headers
+<IfModule mod_expires.c>
+  ExpiresActive On
+  ExpiresDefault "access plus 30 days"
+</IfModule>
+# END Expiry headers
+
+# BEGIN Custom Headers
+<IfModule mod_headers.c>
+  # Don't allow pages to be framed externally - Defends against CSRF
+  Header append X-FRAME-OPTIONS "SAMEORIGIN"
+
+  # Tell the browser to attempt the HTTPS version first
+  Header add Strict-Transport-Security "max-age=157680000"
+
+  # Turn on IE8-IE9 XSS prevention tools
+  Header set X-XSS-Protection "1; mode=block"
+
+  # Only allow JavaScript from the same domain to be run.
+  Header set X-Content-Security-Policy "allow 'self';"
+
+  # Don't allow inline JavaScript to run.
+  # Header set Content-Security-Policy "default-src 'self' style-src 'unsafe-inline' *.design-fu.com *.cloudflare.com *.googleapis.com *.gstatic.com;"
+
+  # Prevent mime based attacks
+  Header set X-Content-Type-Options "nosniff"
+
+  # Disable server signature
+  Header set ServerSignature "Off"
+  Header set ServerTokens "Prod"
+
+  # Control Cross-Domain Policies
+  Header set X-Permitted-Cross-Domain-Policies "master-only"
+
+  Header unset x-powered-by
+</IfModule>
+# END Custom Headers
+
+# BEGIN Compression
+AddType text/css .css
+AddType text/javascript .js
+
+<IfModule mod_deflate.c>
+  <IfModule mod_setenvif.c>
+    <IfModule mod_headers.c>
+      Header append Vary User-Agent env=!dont-vary
+      SetEnvIfNoCase ^(Accept-EncodXng|X-cept-Encoding|X{15}|~{15}|-{15})$ ^((gzip|deflate)\s*,?\s*)+|[X~-]{4,13}$ HAVE_Accept-Encoding
+      RequestHeader append Accept-Encoding "gzip,deflate" env=HAVE_Accept-Encoding
+    </IfModule>
+  </IfModule>
+  <IfModule mod_filter.c>
+    AddOutputFilterByType DEFLATE text/css text/x-component application/x-javascript application/javascript text/javascript text/x-js text/html text/richtext image/svg+xml text/plain text/xsd text/xsl text/xml image/bmp application/java application/msword application/vnd.ms-fontobject application/x-msdownload image/x-icon application/json application/vnd.ms-access application/vnd.ms-project application/x-font-otf application/vnd.ms-opentype application/vnd.oasis.opendocument.database application/vnd.oasis.opendocument.chart application/vnd.oasis.opendocument.formula application/vnd.oasis.opendocument.graphics application/vnd.oasis.opendocument.presentation application/vnd.oasis.opendocument.spreadsheet application/vnd.oasis.opendocument.text audio/ogg application/pdf application/vnd.ms-powerpoint application/x-shockwave-flash image/tiff application/x-font-ttf application/vnd.ms-opentype audio/wav application/vnd.ms-write application/font-woff application/font-woff2 application/vnd.ms-excel
+    <IfModule mod_mime.c>
+        # DEFLATE by extension
+        AddOutputFilter DEFLATE js css htm html xml
+    </IfModule>
+  </IfModule>
+  <FilesMatch "\.(bmp|class|doc|docx|eot|exe|ico|json|mdb|mpp|otf|_otf|odb|odc|odf|odg|odp|ods|odt|ogg|pdf|pot|pps|ppt|pptx|svg|svgz|swf|tif|tiff|ttf|ttc|_ttf|wav|wri|woff|woff2|xla|xls|xlsx|xlt|xlw|BMP|CLASS|DOC|DOCX|EOT|EXE|ICO|JSON|MDB|MPP|OTF|_OTF|ODB|ODC|ODF|ODG|ODP|ODS|ODT|OGG|PDF|POT|PPS|PPT|PPTX|SVG|SVGZ|SWF|TIF|TIFF|TTF|TTC|_TTF|WAV|WRI|WOFF|WOFF2|XLA|XLS|XLSX|XLT|XLW)$">
+    <IfModule mod_headers.c>
+      Header unset Last-Modified
+    </IfModule>
+  </FilesMatch>
+</IfModule>
+
+# Begin Route All
+
+# End Route All

@@ -1,0 +1,11 @@
+{
+  "compact": false,
+  "comments": false,
+  "generatorOpts": {
+    "consice": true
+  },
+  "presets": [
+    "es2015",
+    "stage-2"
+  ]
+}

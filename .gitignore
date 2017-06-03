@@ -1,0 +1,14 @@
+# folders
+storage/cache/
+node_modules/
+public/assets/
+test/
+vendor/
+
+# files
+app/config.php
+composer.lock
+
+# wildcards
+*.config
+*.log

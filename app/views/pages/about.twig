@@ -1,0 +1,18 @@
+{% set title = 'About the php-boilerplate' %}
+{% set desc = 'A Lightweight PHP MVC app using TWIG to render views' %}
+
+{% extends 'templates/master.twig' %}
+
+{% block jumbotron %}
+{% endblock %}
+
+{% block title %}
+  About Us
+{% endblock %}
+
+{% block content %}
+  <div class="col-lg-12">
+    <p>About this app</p>
+    <p><a href="/about/culture" title="About - Culture">Our culture</a></p>
+  </div>
+{% endblock %}

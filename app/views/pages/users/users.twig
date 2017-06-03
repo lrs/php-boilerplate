@@ -1,0 +1,31 @@
+{% extends 'templates/master.twig' %}
+
+{% block jumbotron %}
+{% endblock %}
+
+{% block title %}
+  Users
+{% endblock %}
+
+{% block content %}
+  <div class="col-lg-6 offset-lg-3">
+    {% if users %}
+      {% for key, user in users %}
+        {% if user|length > 0 %}
+          <article class="card">
+            <section class="card-block">
+              <h2 class="card-title"><a href="/user?id={{ key }}" title="Show User">{{ user }}</a></h2>
+            </section>
+          </article>
+        {% endif %}
+      {% endfor %}
+    {% else %}
+      <article class="card">
+        <section class="card-block">
+          <h2 class="card-title text-warning">No Users Found!</h2>
+        </section>
+      </article>
+    {% endif %}
+    <a href="/users/new" class="btn btn-primary" title="Create a new User">New User</a>
+  </div>
+{% endblock %}

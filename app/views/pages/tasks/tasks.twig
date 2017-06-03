@@ -1,0 +1,34 @@
+{% extends 'templates/master.twig' %}
+
+{% block jumbotron %}
+{% endblock %}
+
+{% block title %}
+  Tasks For Today
+{% endblock %}
+
+{% block content %}
+  <div class="col-lg-6 offset-lg-3">
+    {% if tasks %}
+      {% for task in tasks %}
+        <article class="card">
+          <section class="card-block">
+            <h2 class="card-title">
+              {% if (task.completed) %}
+                {{ task.title|highlight('complete') }}
+              {% else %}
+                {{ task.title|highlight('warning') }}
+              {% endif %}
+            </h2>
+          </section>
+        </article>
+      {% endfor %}
+    {% else %}
+      <article class="card">
+        <section class="card-block">
+          <h2 class="card-title text-warning">No Tasks Found!</h2>
+        </section>
+      </article>
+    {% endif %}
+  </div>
+{% endblock %}

@@ -1,0 +1,22 @@
+{
+  "compilerOptions": {
+    "forceConsistentCasingInFileNames": true,
+    "noImplicitReturns":                true,
+    "noImplicitThis":                   false,
+    "noImplicitAny":                    false,
+    "strictNullChecks":                 false,
+    "suppressImplicitAnyIndexErrors":   true,
+    "noUnusedLocals":                   true,
+    "module":                           "commonjs",
+    "target":                           "es5",
+    "removeComments":                   false,
+    "preserveConstEnums":               false,
+    "jsx":                              "react",
+    "outDir":                           "./dist/assets/js"
+  },
+  "exclude": [
+    "dist",
+    "node_modules",
+    "vendor"
+  ]
+}

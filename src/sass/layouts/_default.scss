@@ -1,0 +1,69 @@
+html {
+  font-size: 100%;
+  height: 100%;
+}
+
+body {
+  background: color(lightest);
+  color: color(dark);
+  font-family: 'Source Sans Pro', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 1.25rem;
+  height: 100%;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: Montserrat, Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+
+a {
+  color: color(link);
+  transition: all 150ms ease-in-out;
+
+  &:hover, &:focus, &:active {
+    text-decoration: none;
+    border-bottom: 0.15rem solid color(link-hover);
+  }
+}
+
+hr {
+  margin-bottom: 3rem;
+  border-top-color: color(light);
+}
+
+// Don't use Bootstrap's button styles.
+.btn {
+  transition: all 150ms ease-in-out;
+  padding: 0.5rem 0.75rem;
+  border-radius: $radius-tiny;
+  cursor: pointer;
+
+  &.btn-primary {
+    background: color(lightblue);
+    color: white;
+    border: 1px solid color(blue);
+
+    &:hover, &:focus, &:active {
+      background: color(blue);
+    }
+  }
+}
+
+.card {
+  margin-bottom: 2rem;
+}
+
+.content {
+  margin: 5rem 0 2rem 0;
+
+  .content-heading {
+    border-bottom: solid 1px color(light);
+    font-size: 2.5rem;
+    margin-bottom: 3rem;
+    padding-bottom: 2rem;
+    text-align: center;
+  }
+}
+
+.text-complete {
+  text-decoration: line-through;
+}

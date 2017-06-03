@@ -1,0 +1,15 @@
+{% set title = 'Page Not Found' %}
+{% set desc = 'The page you are looking for cannot be found' %}
+
+{% extends 'templates/master.twig' %}
+
+{% block title %}
+  Oops! Something went wrong
+{% endblock %}
+
+{% block content %}
+  <div class="col-md-6 offset-md-3">
+    <p>Sorry that page can't be found!</p>
+    <p><a href="/" title="Home">Back to the home page</a></p>
+  </div>
+{% endblock %}

@@ -1,0 +1,19 @@
+{% extends 'templates/master.twig' %}
+
+{% block jumbotron %}
+{% endblock %}
+
+{% block title %}
+  New User
+{% endblock %}
+
+{% block content %}
+  <div class="col-lg-6 offset-lg-3">
+    <form method="POST" action="/users">
+      <div class="form-group"><label for="name">Name</label><input type="text" id="name" name="name" class="form-control"></div>
+      <div class="form-group"><label for="email">Email</label><input type="text" id="email" name="email" class="form-control"></div>
+      <div class="form-group"><label for="password">Password</label><input type="password" id="password" name="password" class="form-control"></div>
+      <button type="submit" class="btn btn-primary">submit</button>
+    </form>
+  </div>
+{% endblock %}

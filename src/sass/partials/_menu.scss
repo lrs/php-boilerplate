@@ -1,0 +1,145 @@
+.navbar {
+  ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  background: color(lightest);
+  box-shadow: shadow(low);
+  font-size: 1rem;
+
+  .navbar-toggler {
+    outline: none;
+    cursor: pointer;
+
+    .navbar-toggler-icon {
+      background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(0, 0, 0, 0.5)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E");
+    }
+  }
+
+  .navbar-brand {
+    color: color(darker);
+
+    &:hover, &:focus, &:active {
+      color: color(darker);
+      border-bottom: none;
+    }
+
+    img {
+      margin-right: 0.5rem;
+    }
+  }
+
+  .navbar-collapse {
+    .navbar-nav {
+      @media (min-width: $display-large) {
+        width: 100%;
+        justify-content: flex-end;
+      }
+
+      .nav-item {
+        margin: 0.25rem;
+
+        &.btn.btn-primary {
+          border: none;
+          padding: 0;
+
+          .nav-link {
+            color: white;
+
+            &.active {
+              background: color(blue);
+              color: white;
+            }
+
+            &:hover, &:focus, &:active {
+              color: white;
+            }
+          }
+        }
+
+        .nav-link {
+          color: color(gray);
+          padding: 0.25rem 0.65rem;
+          border-radius: $radius-tiny;
+
+          &.active {
+            background: color(lighter);
+            color: black;
+          }
+
+          &:hover, &:focus, &:active {
+            color: color(darker);
+            border-bottom: none;
+          }
+        }
+      }
+
+      .dropdown {
+        .dropdown-toggle {
+          cursor: pointer;
+        }
+
+        .dropdown-menu {
+          background: color(lightest);
+          border-radius: 0;
+          padding: 0.25rem;
+
+          @media (min-width: $display-large) {
+            box-shadow: shadow(low);
+          }
+
+          .nav-link {
+            color: color(gray);
+
+            &.active {
+              background: color(lighter);
+              color: black;
+            }
+
+            &:hover, &:focus, &:active {
+              color: color(darker);
+            }
+          }
+        }
+      }
+    }
+
+    .form-inline {
+      padding-top: 0.5em;
+      padding-bottom: 0.5em;
+
+      @media (min-width: $display-large) {
+        padding: 0 0 0 1rem;
+      }
+
+      .form-control {
+        line-height: 1.5;
+        width: 9rem;
+        padding: 0 0.6rem;
+
+        transition: width 75ms ease-in;
+
+        &:focus {
+          width: 15rem;
+        }
+
+        &::placeholder {
+          color: color(light);
+        }
+      }
+
+      .input-group-addon {
+        border-left-width: 0;
+        cursor: pointer;
+        width: 3.5rem;
+        text-align: center;
+
+        &:hover {
+          background: color(lighter);
+        }
+      }
+    }
+  }
+}

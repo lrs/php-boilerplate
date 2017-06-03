@@ -1,0 +1,28 @@
+{% extends 'templates/master.twig' %}
+
+{% block jumbotron %}
+{% endblock %}
+
+{% block title %}
+  User
+{% endblock %}
+
+{% block content %}
+  <div class="col-lg-6 offset-lg-3">
+    <article class="card">
+        {% if user %}
+          <section class="card-block">
+            <h2 class="card-title">{{ user.name }}</h2>
+            <p class="card-text">{{ user.email }}</p>
+          </section>
+          <section class="card-footer">
+            <p>{{ user.created }}</p>
+          </section>
+        {% else %}
+          <section class="card-block">
+            <h2 class="card-title text-warning">No Post Found!</h2>
+          </section>
+        {% endif %}
+    </article>
+  </div>
+{% endblock %}

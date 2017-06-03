@@ -1,0 +1,33 @@
+{% extends 'templates/master.twig' %}
+
+{% block jumbotron %}
+{% endblock %}
+
+{% block title %}
+  Posts
+{% endblock %}
+
+{% block content %}
+  <div class="col-lg-12">
+    {% if posts %}
+      <div class="card-columns">
+      {% for key, post in posts %}
+        {% if post|length > 0 %}
+          <article class="card posts-post">
+            <section class="card-block">
+              <h2 class="card-title"><a href="/post?id={{ key }}" title="Show Post">{{ post }}</a></h2>
+            </section>
+          </article>
+        {% endif %}
+      {% endfor %}
+      </div>
+    {% else %}
+      <article class="card">
+        <section class="card-block">
+          <h2 class="card-title text-warning">No Posts Found!</h2>
+        </section>
+      </article>
+    {% endif %}
+    <a href="/posts/new" class="btn btn-primary" title="Create a new Post">New Post</a>
+  </div>
+{% endblock %}

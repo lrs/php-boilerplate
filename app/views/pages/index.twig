@@ -1,0 +1,19 @@
+{% set title = 'Home' %}
+{% set desc = 'Welcome to the php-boilerplate' %}
+
+{% extends 'templates/master.twig' %}
+
+{% block jumbotron %}
+  {% include 'sections/jumbotron.twig' %}
+{% endblock %}
+
+{% block title %}
+  Welcome
+{% endblock %}
+
+{% block content %}
+  <div class="col-lg-12">
+    <p>App built from lessons at <a href="https://laracasts.com/series/php-for-beginners/" title="Laracasts">Laracasts</a></p>
+    <p>With added <a href="http://twig.sensiolabs.org/" title="Twig Template Engine">Twig</a> views.</p>
+  </div>
+{% endblock %}
