@@ -33,12 +33,10 @@ Class Users {
     // if usr/pwd match in users db
     $date = dateStammp();
     $result = App::get('database')->update('users', "active=1, lastloggedin={$date}", "name={$id}");
-    App::get('session')->store($result);
     return $result;
   }
 
   public static function signOut($id) {
     App::get('database')->update('users', 'active=0', "name={$id}");
-    App::get('session')->release('session');
   }
 }

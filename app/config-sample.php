@@ -12,6 +12,7 @@ return [
   ],
   'session' => [
     'type' => 'database',
+    'table' => 'session_table',
     'lifetime' => '21',
     'encrypt' => false
   ]
