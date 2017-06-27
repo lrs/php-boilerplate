@@ -6,12 +6,13 @@ use DateTime;
 
 use LRS\App\Core\App;
 use LRS\App\Models\Users;
+use LRS\App\Core\Session\SessionManager;
 
 Class UsersController {
   public function index() {
     $users = Users::fetchUsers();
-
-    echo view("pages/users/users", ['users' => $users]);
+    SessionManager::setFlash('hello world');
+    echo view("pages/users/users", ['users' => $users, 'flash' => SessionManager::flash()]);
   }
 
   public function user() {

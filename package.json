@@ -34,6 +34,7 @@
     "babel-preset-stage-2": "^6.24.1",
     "browserify": "^14.4.0",
     "browserslist": "^2.1.4",
+    "del": "^3.0.0",
     "gulp": "^3.9.1",
     "gulp-autoprefixer": "^4.0.0",
     "gulp-babel": "^6.1.2",
@@ -66,7 +67,6 @@
   ],
   "dependencies": {
     "bootstrap": "4.0.0-alpha.6",
-    "del": "^2.2.2",
     "font-awesome": "^4.7.0",
     "gsap": "^1.19.1",
     "jquery": "^3.2.1",

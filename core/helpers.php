@@ -78,10 +78,8 @@ function dateStamp() {
   return "{$d['year']}-{$m}-{$day}T{$h}:{$min}:{$s}";
 }
 
-function guid()
-{
-  if (function_exists('com_create_guid'))
-  {
+function guid() {
+  if (function_exists('com_create_guid')) {
     return trim(com_create_guid(), '{}');
   }
 

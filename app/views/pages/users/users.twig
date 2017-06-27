@@ -9,6 +9,9 @@
 
 {% block content %}
   <div class="col-lg-6 offset-lg-3">
+    {{ flash }}
+  </div>
+  <div class="col-lg-6 offset-lg-3">
     {% if users %}
       {% for key, user in users %}
         {% if user|length > 0 %}

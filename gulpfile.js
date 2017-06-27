@@ -96,13 +96,13 @@ gulp.task('ts', () => {
 
 // Clear cache
 gulp.task('clear', () => {
-  try {
-    del('./cache/twig/**/*')
-    gutil.log('Twig cache cleared.')
-  }
-  catch (ex) {
-    gutil.log(`An error occured clearing Twig cache: ${ex.message}`)
-  }
+  return del('./storage/cache/twig/**/*')
+    .then(() => {
+      gutil.log('Twig cache cleared.')
+    })
+    .catch (ex => {
+      gutil.log(`An error occured clearing Twig cache: ${ex.message}`)
+    })
 })
 
 // Watch for changes in ./src or ./app/views
@@ -142,7 +142,7 @@ gulp.task('static-js', () => {
 })
 // combine
 gulp.task('statics', () => {
-  runSeq(
+  return runSeq(
     'static-files',
     'static-js',
     'static-images',
@@ -153,7 +153,7 @@ gulp.task('statics', () => {
 // Optional checks.
 // Lint CSS
 gulp.task('csslint', () => {
-  gulp.src('./public/assets/css/*.css')
+  return gulp.src('./public/assets/css/*.css')
   .pipe(csslint('.csslintrc'))
   .pipe(csslint.formatter())
 })
@@ -165,7 +165,7 @@ const isFixed = file => {
 }
 
 gulp.task('eslint', () => {
-  gulp.src('./public/assets/js/**/*.js')
+  return gulp.src('./public/assets/js/**/*.js')
   .pipe(eslint('.eslintrc.json', { fix: true }))
 	.pipe(eslint.format())
   // if fixed, write the file to dest
@@ -181,16 +181,18 @@ gulp.task('checks', ['csslint', 'eslint'], () => {})
 // Default tasks
 if (opts.dist) {
   gulp.task('default', () => {
-    runSeq(
+    return runSeq(
       ['statics', 'clear', 'sass', 'ts'],
-      'js'
+      'js',
+      'clear'
     )
   })
 } else {
   gulp.task('default', () => {
-    runSeq(
+    return runSeq(
       ['sass', 'ts'],
       'js',
+      'clear',
       'watches'
     )})
 }

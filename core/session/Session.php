@@ -3,21 +3,17 @@
 namespace LRS\App\Core\Session;
 
 class SessionManager {
-  protected $type;
-  public $id;
+  protected static $flash_message;
 
-  public function __construct($type) {
-    $this->type = $type;
-    $this->id = 0;
+  public static function setFlash($message) {
+    self::$flash_message = $message;
   }
 
-  public function store($data) {
-    // Get returned id from stored row
-    $this->id = 0;
+  public static function hasFlash() {
+    return !is_null(self::$flash_message);
   }
 
-  public function release($id) {
-    // Get returned id from released row
-    $this->id = 0;
+  public static function flash() {
+    return self::$flash_message;
   }
 }
