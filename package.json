@@ -1,7 +1,7 @@
 {
   "name": "php-boilerplate",
   "version": "0.0.1",
-  "description": "Lightweight PHP MVC app using Twig to render views",
+  "description": "A lean, mean MVC machine with routing. It uses Twig for Views, Sass for CSS and Typescript for JS.",
   "scripts": {
     "start": "php -S localhost:8888 -t public",
     "build": "gulp",

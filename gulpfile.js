@@ -77,7 +77,7 @@ gulp.task('js', () => {
     .pipe(gulp.dest('./public/assets/js/'))
 })
 
-// Typescript
+// Compile typescript files to JS.
 gulp.task('ts', () => {
   return browserify({
     basedir: '.',
@@ -94,7 +94,7 @@ gulp.task('ts', () => {
   .pipe(gulp.dest('./src/temp/'))
 })
 
-// Clear cache
+// Clear Twig cache
 gulp.task('clear', () => {
   return del('./storage/cache/twig/**/*')
     .then(() => {

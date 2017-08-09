@@ -1,6 +1,6 @@
 {
   "name": "php-boilerplate",
-  "description": "Lightweight PHP MVC app using Twig to render views.",
+  "description": "A lean, mean MVC machine with routing. It uses Twig for Views, Sass for CSS and Typescript for JS.",
   "version": "0.0.1",
   "require": {
     "twig/twig": "~1.0"
