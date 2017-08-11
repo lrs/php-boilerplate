@@ -13,3 +13,6 @@ Gulp tasks are used to translate and compile SASS and Typescript and to watch fo
 - statics - Copy source files to the public folder.
 - watches - Watch for changes in source files and run the relevant tasks.
 - checks - Optional CSS and JS linting.
+
+### Licence
+This project is licensed under the terms of the MIT license.

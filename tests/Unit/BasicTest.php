@@ -9,6 +9,7 @@
  * @license  http://localhost MIT
  * @link     http://localhost
  */
+
 namespace Tests\Unit;
 
 use PHPUnit\Framework\TestCase;
@@ -22,14 +23,14 @@ use PHPUnit\Framework\TestCase;
  * @license  http://localhost MIT
  * @link     http://localhost
  */
-class Example extends TestCase
+class BasicTest extends TestCase
 {
     /**
-     * Test Example
+     * Check phpunit is working
      *
      * @return void
      */
-    public function testExample()
+    public function testBasic()
     {
         $this->assertEquals(1, 1);
     }
