@@ -3,6 +3,7 @@
 namespace LRS\App\Core\Database;
 
 use PDO;
+use PDOException;
 
 class QueryBuilder
 {
@@ -19,6 +20,21 @@ class QueryBuilder
         $qry->execute();
 
         return $qry->fetchAll(PDO::FETCH_CLASS);
+    }
+
+    public function clear($table)
+    {
+        $result = false;
+        $qry = $this->conn->prepare("truncate table $table");
+
+        try {
+            $qry->execute();
+            $result = true;
+        } catch (PDOException $e) {
+            throw $e;
+        } finally {
+            return $result;
+        }
     }
 
     public function select($table, $clause)

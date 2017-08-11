@@ -4,18 +4,25 @@
  * PHP version 7
  *
  * @category Tests
- * @package  DesignFu
+ * @package  Tests\Unit
  * @author   LRS <lee.spendlove@design-fu.com>
- * @license  http://localhost MIT
+ * @license  https://opensource.org/licenses/MIT MIT
  * @link     http://localhost
  */
 
-namespace Tests\Unit;
+namespace LRS\Tests\Unit;
 
 use PHPUnit\Framework\TestCase;
 
 use LRS\App\Core\App;
 
+/**
+ * Run Test Suite
+ *
+ * @category Tests
+ * @package  Tests\Unit
+ * @author   LRS <lee.spendlove@design-fu.com>
+ */
 class CoreAppTest extends TestCase
 {
     public function testBind()
