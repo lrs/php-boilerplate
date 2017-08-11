@@ -12,11 +12,11 @@
     "removeComments":                   false,
     "preserveConstEnums":               false,
     "jsx":                              "react",
-    "outDir":                           "./dist/assets/js"
+    "outDir":                           "./public/assets/js"
   },
   "exclude": [
-    "dist",
     "node_modules",
+    "public",
     "vendor"
   ]
 }

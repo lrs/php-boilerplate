@@ -10,7 +10,7 @@ use LRS\App\Core\Session\SessionManager;
 App::bind('config', require __DIR__ . '/../app/config.php');
 
 App::bind('database', new QueryBuilder(
-  Connection::make(App::get('config')['database'])
+    Connection::make(App::get('config')['database'])
 ));
 
 App::bind('session', new SessionManager('database'));

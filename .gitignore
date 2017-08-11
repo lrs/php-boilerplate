@@ -2,7 +2,6 @@
 storage/cache/
 node_modules/
 public/assets/
-test/
 vendor/
 
 # files

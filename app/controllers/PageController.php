@@ -2,14 +2,30 @@
 
 namespace LRS\App\Controllers;
 
-Class PageController {
-  public function index() { echo view("pages/index"); }
+class PageController
+{
+    public function index()
+    {
+        echo view("pages/index");
+    }
 
-  public function contact() { echo view("pages/contact"); }
+    public function contact()
+    {
+        echo view("pages/contact");
+    }
 
-  public function about() { echo view("pages/about"); }
+    public function about()
+    {
+        echo view("pages/about");
+    }
 
-  public function aboutCulture() { echo view("pages/about-culture"); }
+    public function aboutCulture()
+    {
+        echo view("pages/about-culture");
+    }
 
-  public function notFound() { echo view("pages/404"); }
+    public function notFound()
+    {
+        echo view("pages/404");
+    }
 }
